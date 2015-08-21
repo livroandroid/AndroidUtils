@@ -1,0 +1,11 @@
+<resources>
+    <!--
+        <string name="nav_drawer_username">Ricardo Lecheta</string>
+        <string name="nav_drawer_email">rlecheta@gmail.com</string>
+
+        -->
+    <string name="empty" />
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

@@ -1,0 +1,56 @@
+    /*
+ * Copyright 2014 Ricardo Lecheta
+ *
+ * Faz deploy no repositório local
+ */
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            println "Deploy to local repository..."
+
+            //repository(url: "file:///r:/home/ricardo/gradle/rep")
+            repository(url: "file:///home/ricardo/gradle/rep")
+
+            pom.groupId = GROUP
+            pom.artifactId = POM_ARTIFACT_ID
+            pom.version = VERSION_NAME
+
+            println "Deploy OK."
+        }
+    }
+}
+task install(dependsOn: uploadArchives)
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+artifacts {
+    archives androidSourcesJar
+    //archives androidJavadocsJar
+}
+
+/*
+No projeto:
+
+repositories {
+    maven {
+        url "file:///home/ricardo/gradle/rep"
+    }
+}
+ */
