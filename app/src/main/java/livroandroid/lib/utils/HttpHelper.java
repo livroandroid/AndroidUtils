@@ -94,8 +94,7 @@ public class HttpHelper {
             conn.setRequestMethod("DELETE");
             conn.setConnectTimeout(TIMEOUT_MILLIS);
             conn.setReadTimeout(TIMEOUT_MILLIS);
-            conn.setDoOutput(true);
-            //conn.setDoInput(true);
+
             conn.connect();
             InputStream in = conn.getInputStream();
             s = IOUtils.toString(in, charset);
