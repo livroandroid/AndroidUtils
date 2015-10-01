@@ -2,6 +2,7 @@ package livroandroid.lib.utils;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 
@@ -69,5 +70,40 @@ public class SDCardUtils {
         // Retorna o arquivo para ler ou salvar no sd card
         File file = new File(sdCardDir, fileName);
         return file;
+    }
+
+    /**
+     * Retorna a pasta montada no /mnt/sdcard
+     *
+     * @param context
+     * @param preferedDir
+     * @return
+     */
+    public static File getSdCardDir(Context context, String preferedDir) {
+        File dir = null;
+        if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
+            dir = new File(android.os.Environment.getExternalStorageDirectory(), preferedDir);
+        } else {
+            dir = context.getCacheDir();
+        }
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        return dir;
+    }
+
+    /**
+     * Retorna um File do /mnt/sdcard/${folderName}/${fileName}
+     *
+     * @param context
+     * @param folderName
+     * @param fileName
+     * @return
+     */
+    public static File getSdCardFile(Context context, String folderName, String fileName) {
+        File sdcard = getSdCardDir(context, folderName);
+        File f = new File(sdcard, fileName);
+        Log.d(TAG, "<< getSdCardFile > " + f);
+        return f;
     }
 }

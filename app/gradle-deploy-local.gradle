@@ -12,8 +12,8 @@ uploadArchives {
         mavenDeployer {
             println "Deploy to local repository..."
 
-            //repository(url: "file:///r:/home/ricardo/gradle/rep")
-            repository(url: "file:///home/ricardo/gradle/rep")
+            repository(url: "file:///r:/home/ricardo/gradle/rep")
+            //repository(url: "file:///home/ricardo/gradle/rep")
 
             pom.groupId = GROUP
             pom.artifactId = POM_ARTIFACT_ID

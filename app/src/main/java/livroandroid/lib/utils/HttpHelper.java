@@ -15,7 +15,7 @@ import java.util.Map;
 public class HttpHelper {
     private final String TAG = "Http";
     public final int TIMEOUT_MILLIS = 15000;
-    public boolean LOG_ON = true;
+    public boolean LOG_ON = false;
     private String contentType;
     private String charsetToEncode;
 
