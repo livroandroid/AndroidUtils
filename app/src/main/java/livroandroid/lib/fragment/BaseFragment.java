@@ -135,7 +135,6 @@ public abstract class BaseFragment extends DebugFragment {
         }
 
         protected void onPostExecute(TaskResult result) {
-            Log.d("livroandroid", "task onPostExecute(): " + result);
             try {
                 if (result != null) {
                     if (result.exception != null) {

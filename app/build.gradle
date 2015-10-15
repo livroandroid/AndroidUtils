@@ -39,10 +39,10 @@ dependencies {
 }
 
 // Local
-apply from: 'gradle-deploy-local.gradle'
+//apply from: 'gradle-deploy-local.gradle'
 
 // Maven Central
-//apply from: 'gradle-mvn-push.gradle'
+apply from: 'gradle-mvn-push.gradle'
 
 // Depois do build entrar no site, selecionar artefato e fazer Close/Release
 // https://oss.sonatype.org/#stagingRepositories
