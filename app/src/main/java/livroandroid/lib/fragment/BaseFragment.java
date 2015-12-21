@@ -4,9 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.support.annotation.ColorRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -305,5 +305,44 @@ public abstract class BaseFragment extends DebugFragment {
 
     public AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
+    }
+
+    public void setupPullToRefresh(int swipeToRefreshId, @ColorRes int... colorResIds) {
+        setupPullToRefresh(getView(), swipeToRefreshId, colorResIds);
+    }
+
+    public void setupPullToRefresh(View view, int swipeToRefreshId, @ColorRes int... colorResIds) {
+        if(view != null) {
+            // Swipe to Refresh
+            SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) view.findViewById(swipeToRefreshId);
+            swipeLayout.setOnRefreshListener(OnRefreshListener());
+            // Cores da animação
+            if(swipeLayout != null) {
+                swipeLayout.setColorSchemeResources(colorResIds);
+            }
+        }
+    }
+
+    private SwipeRefreshLayout.OnRefreshListener OnRefreshListener() {
+        return new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                pullToRefresh();
+            }
+        };
+    }
+
+    protected void pullToRefresh() {
+        // Basta sobrescrever
+    }
+
+    protected void dismissPullToRefresh(View view, int swipeToRefreshId) {
+        if(view != null) {
+            // Swipe to Refresh
+            SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) view.findViewById(swipeToRefreshId);
+            if(swipeLayout != null) {
+                swipeLayout.setRefreshing(false);
+            }
+        }
     }
 }
