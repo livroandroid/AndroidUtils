@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.annotation.ColorRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -264,19 +263,19 @@ public abstract class BaseFragment extends DebugFragment {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    protected void snack(View view,int msg, final Runnable runnable) {
+    protected void snack(View view, int msg, final Runnable runnable) {
         snack(view, getString(msg), runnable);
     }
 
-    protected void snack(View view,int msg) {
+    protected void snack(View view, int msg) {
         snack(view, getString(msg), null);
     }
 
-    protected void snack(View view,String msg) {
+    protected void snack(View view, String msg) {
         snack(view, msg, null);
     }
 
-    protected void snack(View view,String msg, final Runnable runnable) {
+    protected void snack(View view, String msg, final Runnable runnable) {
         Snackbar
                 .make(view, msg, Snackbar.LENGTH_LONG)
                 .setAction("Ok", new View.OnClickListener() {
@@ -305,44 +304,5 @@ public abstract class BaseFragment extends DebugFragment {
 
     public AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
-    }
-
-    public void setupPullToRefresh(int swipeToRefreshId, @ColorRes int... colorResIds) {
-        setupPullToRefresh(getView(), swipeToRefreshId, colorResIds);
-    }
-
-    public void setupPullToRefresh(View view, int swipeToRefreshId, @ColorRes int... colorResIds) {
-        if(view != null) {
-            // Swipe to Refresh
-            SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) view.findViewById(swipeToRefreshId);
-            swipeLayout.setOnRefreshListener(OnRefreshListener());
-            // Cores da animação
-            if(swipeLayout != null) {
-                swipeLayout.setColorSchemeResources(colorResIds);
-            }
-        }
-    }
-
-    private SwipeRefreshLayout.OnRefreshListener OnRefreshListener() {
-        return new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                pullToRefresh();
-            }
-        };
-    }
-
-    protected void pullToRefresh() {
-        // Basta sobrescrever
-    }
-
-    protected void dismissPullToRefresh(View view, int swipeToRefreshId) {
-        if(view != null) {
-            // Swipe to Refresh
-            SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) view.findViewById(swipeToRefreshId);
-            if(swipeLayout != null) {
-                swipeLayout.setRefreshing(false);
-            }
-        }
     }
 }
