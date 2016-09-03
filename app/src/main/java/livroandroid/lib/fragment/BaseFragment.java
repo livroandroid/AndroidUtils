@@ -305,4 +305,8 @@ public abstract class BaseFragment extends DebugFragment {
     public AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
     }
+
+    public boolean getBoolean(int res) {
+        return getActivity().getResources().getBoolean(res);
+    }
 }

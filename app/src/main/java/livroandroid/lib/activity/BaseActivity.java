@@ -77,4 +77,7 @@ public class BaseActivity extends DebugActivity {
         }).show();
     }
 
+    public boolean getBoolean(int res) {
+        return getResources().getBoolean(res);
+    }
 }
