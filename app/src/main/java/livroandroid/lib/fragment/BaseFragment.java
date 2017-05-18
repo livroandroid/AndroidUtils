@@ -18,9 +18,8 @@ import java.util.Map;
 /**
  */
 public abstract class BaseFragment extends DebugFragment {
-    private Map<String, Task> tasks = new HashMap<String, Task>();
+    private Map<String, Task> tasks = new HashMap<>();
     private ProgressDialog progress;
-    private SwipeRefreshLayout swipeLayout;
     // Este é o fragment base do projeto.
     // Útil se for necessário inserir algum método e lógica para todos os fragments
 
@@ -61,7 +60,7 @@ public abstract class BaseFragment extends DebugFragment {
         private Exception exception;
     }
 
-    public interface TaskListener<T> {
+    interface TaskListener<T> {
         // Executa em background e retorna o objeto
         T execute() throws Exception;
 
