@@ -15,6 +15,9 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
 
+import livroandroid.lib.task.TaskListener;
+import livroandroid.lib.task.TaskResult;
+
 /**
  */
 public abstract class BaseFragment extends DebugFragment {
@@ -53,25 +56,6 @@ public abstract class BaseFragment extends DebugFragment {
             task.cancel(true);
             tasks.remove(cod);
         }
-    }
-
-    private class TaskResult<T> {
-        private T response;
-        private Exception exception;
-    }
-
-    interface TaskListener<T> {
-        // Executa em background e retorna o objeto
-        T execute() throws Exception;
-
-        // Atualiza a view na UI Thread
-        void updateView(T response);
-
-        // Chamado caso o método execute() lance uma exception
-        void onError(Exception exception);
-
-        // Chamado caso a task tenha sido cancelada
-        void onCancelled(String cod);
     }
 
     /**
