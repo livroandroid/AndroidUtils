@@ -4,7 +4,7 @@ Versão recomendada:
 
 <pre>
 compile 'br.com.livroandroid:android-utils:5.0.1'
-
+</pre>
 
 Compilada com Android Studio 3 preview.
 
