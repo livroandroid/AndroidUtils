@@ -3,12 +3,12 @@
 Versão recomendada:
 
 <pre>
-compile 'br.com.livroandroid:android-utils:5.0.1'
+compile 'br.com.livroandroid:android-utils:7.0.0'
 </pre>
 
 Compilada com Android Studio 3 preview.
 
 <pre>
-compileSdkVersion 25
-buildToolsVersion "25.0.3"
+compileSdkVersion 27
+buildToolsVersion "27.0.3"
 </pre>
