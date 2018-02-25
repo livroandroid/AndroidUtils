@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 27
     }
     buildTypes {
         release {
@@ -25,12 +25,12 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     // support e material design
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile 'com.android.support:design:27.0.2'
 
     // play services - location
-    compile 'com.google.android.gms:play-services-maps:10.2.6'
-    compile 'com.google.android.gms:play-services-location:10.2.6'
+    compile 'com.google.android.gms:play-services-maps:11.8.0'
+    compile 'com.google.android.gms:play-services-location:11.8.0'
 }
 
 // Local
