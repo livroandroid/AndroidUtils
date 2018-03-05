@@ -3,9 +3,7 @@ package livroandroid.lib.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Encapsula o acesso ao SharedPreferences
- */
+// Classe utilitária para usar o SharedPreferences
 public class Prefs {
     public static final String PREF_ID = "livroandroid";
 
@@ -48,4 +46,3 @@ public class Prefs {
         return s;
     }
 }
-
